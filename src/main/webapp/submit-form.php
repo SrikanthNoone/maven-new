@@ -22,23 +22,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = mysqli_real_escape_string($conn, $_POST["phone"]);
     $product = mysqli_real_escape_string($conn, $_POST["product"]);
 
-    // Print form data for debugging
-    echo "Name: " . $name . "<br>";
-    echo "Email: " . $email . "<br>";
-    echo "Phone: " . $phone . "<br>";
-    echo "Product: " . $product . "<br>";
+    // Construct SQL INSERT statement using prepared statement
+    $sql = "INSERT INTO customer_orders (name, email, phone, product) VALUES (?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $phone, $product);
 
-    // Construct SQL INSERT statement
-    $sql = "INSERT INTO customer_orders (name, email, phone, product) VALUES ('$name', '$email', '$phone', '$product')";
-
-    // Execute INSERT statement
-    if (mysqli_query($conn, $sql)) {
-        echo "Order placed successfully!";
+    // Execute prepared statement
+    if (mysqli_stmt_execute($stmt)) {
+        // Success: Redirect or display success message
+        header("Location: success.php"); // Redirect to success page
+        exit(); // Stop script execution
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        // Error: Display error message
+        echo "Error: " . mysqli_error($conn);
     }
-} else {
-    echo "No form data submitted.";
+
+    // Close prepared statement
+    mysqli_stmt_close($stmt);
 }
 
 // Close the database connection
