@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product = mysqli_real_escape_string($conn, $_POST["product"]);
 
     // Construct SQL INSERT statement
-    $sql = "INSERT INTO orders (name, email, phone, product) VALUES ('$name', '$email', '$phone', '$product')";
+    $sql = "INSERT INTO customer_orders (name, email, phone, product) VALUES ('$name', '$email', '$phone', '$product')";
 
     // Execute INSERT statement
     if (mysqli_query($conn, $sql)) {
