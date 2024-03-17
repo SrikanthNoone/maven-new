@@ -22,6 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = mysqli_real_escape_string($conn, $_POST["phone"]);
     $product = mysqli_real_escape_string($conn, $_POST["product"]);
 
+    // Print form data for debugging
+    echo "Name: " . $name . "<br>";
+    echo "Email: " . $email . "<br>";
+    echo "Phone: " . $phone . "<br>";
+    echo "Product: " . $product . "<br>";
+
     // Construct SQL INSERT statement
     $sql = "INSERT INTO customer_orders (name, email, phone, product) VALUES ('$name', '$email', '$phone', '$product')";
 
@@ -31,6 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+} else {
+    echo "No form data submitted.";
 }
 
 // Close the database connection
