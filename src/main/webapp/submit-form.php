@@ -1,4 +1,5 @@
 <?php
+
 // Database credentials
 $hostname = 'localhost';
 $username = 'admin';
