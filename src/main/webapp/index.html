@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My eCommerce Website</title>
+    <title>Phone Store</title>
     <!-- Link to your CSS file for styling -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <h1>Buy your product here!!!!</h1>
-        <h2>Your mobile hub spot</h2>
-        <div class="logo">Your Logo</div>
+        <h1>Welcome to Phone Store</h1>
+        <h2>Your destination for the latest smartphones</h2>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
+                <li><a href="#">Products</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -26,33 +25,62 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Featured Products Section -->
-        <section class="featured-products">
-            <h2>Featured Products</h2>
-            <div class="product">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>Product Name</h3>
-                <p>Description of the product.</p>
-                <button>Add to Cart</button>
+        <!-- Featured Phones Section -->
+        <section class="featured-phones">
+            <h2>Featured Phones</h2>
+            <div class="phone">
+                <img src="iphone12.jpg" alt="iPhone 12">
+                <h3>iPhone 12</h3>
+                <p>6.1-inch Super Retina XDR display. Ceramic Shield, tougher than any smartphone glass. 5G for superfast downloads and high-quality streaming.</p>
+                <button onclick="addToCart('iPhone 12')">Add to Cart</button>
             </div>
-            <!-- Repeat the above product structure for other featured products -->
+            <div class="phone">
+                <img src="samsunggalaxys21.jpg" alt="Samsung Galaxy S21">
+                <h3>Samsung Galaxy S21</h3>
+                <p>6.2-inch Dynamic AMOLED 2X display. Triple rear camera system. 5G connectivity. Exynos 2100 processor.</p>
+                <button onclick="addToCart('Samsung Galaxy S21')">Add to Cart</button>
+            </div>
+            <div class="phone">
+                <img src="googlepixel5.jpg" alt="Google Pixel 5">
+                <h3>Google Pixel 5</h3>
+                <p>6.0-inch OLED display. Dual rear camera system with 12.2 MP main sensor. 5G capable. Snapdragon 765G processor.</p>
+                <button onclick="addToCart('Google Pixel 5')">Add to Cart</button>
+            </div>
+            <div class="phone">
+                <img src="oneplus9pro.jpg" alt="OnePlus 9 Pro">
+                <h3>OnePlus 9 Pro</h3>
+                <p>6.7-inch Fluid AMOLED display. Hasselblad quad camera setup. 5G connectivity. Snapdragon 888 processor.</p>
+                <button onclick="addToCart('OnePlus 9 Pro')">Add to Cart</button>
+            </div>
+            <!-- Add more phones as needed -->
         </section>
 
-        <!-- Categories Section -->
-        <section class="categories">
-            <h2>Categories</h2>
-            <ul>
-                <li><a href="#">Category 1</a></li>
-                <li><a href="#">Category 2</a></li>
-                <li><a href="#">Category 3</a></li>
-                <!-- Add more categories as needed -->
-            </ul>
+        <!-- User Details Form -->
+        <section class="user-details-form">
+            <h2>Enter Your Details</h2>
+            <form action="submit-form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Your Company</p>
+        <p>&copy; 2024 Phone Store</p>
     </footer>
+
+    <!-- JavaScript to handle adding products to cart -->
+    <script>
+        function addToCart(productName) {
+            alert('Added ' + productName + ' to cart!');
+            // You can add code here to store the selected product in the cart
+        }
+    </script>
 </body>
 </html>
